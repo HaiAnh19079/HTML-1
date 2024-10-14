@@ -94,12 +94,26 @@
         <!-- Styles css -->
         <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
         <link rel="stylesheet" href="./assets/css/styles.css" />
+        <link rel="stylesheet" href="./assets/css/responsive.css" />
     </head>
     <body>
-        <!-- Fixed header -->
+        <!-- Fixed header , PC header -->
         <header class="fixed-header">
             <div class="content">
                 <nav class="navbar">
+                    <!-- Tablet & Mobile menu -->
+                    <label for="menu-checkbox" class="toggle-menu">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+                            />
+                        </svg>
+                    </label>
+
                     <!-- logo -->
                     <a href="#">
                         <img
@@ -108,14 +122,29 @@
                             class="logo"
                         />
                     </a>
+
                     <!-- Navigation -->
-                    <ul class="navigation">
+                    <ul class="navigation" id="pc-nav">
                         <li><a href="#">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#resources">Resources</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <a
+                                class="actions-link show-on-mobile separate"
+                                href="#!"
+                            >
+                                Sign in
+                            </a>
+                        </li>
+                        <li>
+                            <a class="actions-link show-on-mobile" href="#!">
+                                Sign up
+                            </a>
+                        </li>
                     </ul>
+
                     <!-- Action -->
                     <div class="actions">
                         <a class="actions-link" href="#!">Sign in</a>
@@ -124,6 +153,43 @@
                 </nav>
             </div>
         </header>
+
+        <!-- Tablet & mobile header -->
+        <header class="mobile-header">
+            <input
+                type="checkbox"
+                name=""
+                id="menu-checkbox"
+                class="menu-checkbox"
+                hidden
+            />
+
+            <!-- Overlay -->
+            <label for="menu-checkbox" class="menu-overlay"></label>
+
+            <!-- Menu content -->
+            <div class="menu-drawer">
+                <!-- logo -->
+                <a href="#">
+                    <img
+                        src="./assets/img/logo.svg"
+                        alt="besnik."
+                        class="mobile-logo"
+                    />
+                </a>
+
+                <!-- Navigation -->
+
+                <ul class="mobile-navigation" id="mobile-nav"></ul>
+                <script>
+                    const pcNav = document.querySelector('#pc-nav');
+                    const mobileNav = document.querySelector('#mobile-nav');
+
+                    mobileNav.innerHTML = pcNav.innerHTML;
+                </script>
+            </div>
+        </header>
+
         <main>
             <!-- Hero -->
             <div class="hero-wrap">
@@ -165,7 +231,9 @@
                         <p class="desc">
                             More than 45,000+ companies trust besnik
                         </p>
-                        <p class="desc">5 Star Ratings (2k+ Review)</p>
+                        <p class="desc hide-on-mobile">
+                            5 Star Ratings (2k+ Review)
+                        </p>
                     </div>
                     <div class="images">
                         <a href="#!">
@@ -275,7 +343,7 @@
                             <p class="desc">
                                 Everything you need to know when you're looking
                             </p>
-                            <a href="#!" class="cta-link link">
+                            <a href="#!" class="cta-link link hide-on-mobile">
                                 <span>View All Properties</span>
                                 <img
                                     class="arrow-right"
@@ -422,6 +490,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="view-all show-on-mobile">
+                        <a href="#!" class="btn">View All Properties</a>
+                    </div>
                 </div>
             </div>
             <!-- Stats  -->
@@ -555,27 +627,14 @@
                             </div>
                         </div>
                         <div class="info">
-                            <div style="width: 309px">
-                                <div class="sub-title">
-                                    You’ve found a neighborhood you love. Lorem
-                                    ipsum dolor sit amet consectetur adipisicing
-                                    elit. Adipisci nostrum iure voluptatibus
-                                    delectus maiores maxime nisi magni eius hic
-                                    in quasi nulla aperiam, placeat provident
-                                    ullam quod natus ut quae.
-                                </div>
-                                <div class="desc">
-                                    When you own a home, you’re committing to
-                                    living in one location for a while. In a
-                                    recent Trulia survey, we found that five out
-                                    of six respondents said finding the right
-                                    neighborhood Lorem ipsum dolor, sit amet
-                                    consectetur adipisicing elit. Provident ad
-                                    iste velit amet totam dolores, quae, ipsum
-                                    dolorem reprehenderit quis ducimus esse!
-                                    Delectus cum modi labore obcaecati quisquam!
-                                    Doloremque, laboriosam!
-                                </div>
+                            <div class="sub-title">
+                                You’ve found a neighborhood you love.
+                            </div>
+                            <div class="desc">
+                                When you own a home, you’re committing to living
+                                in one location for a while. In a recent Trulia
+                                survey, we found that five out of six
+                                respondents said finding the right neighborhood
                             </div>
                         </div>
                     </div>
@@ -601,16 +660,9 @@
                     <div class="body">
                         <div class="info">
                             <h2 class="sub-title line-clamp">
-                                Subscribe to our Newsletter! Subscribe to our
-                                Newsletter! Subscribe to our Newsletter!
                                 Subscribe to our Newsletter!
                             </h2>
                             <p class="desc line-clamp" style="--line-clamp: 3">
-                                Subscribe to our newsletter and stay updated.
-                                Subscribe to our newsletter and stay updated.
-                                Subscribe to our newsletter and stay updated.
-                                Subscribe to our newsletter and stay updated.
-                                Subscribe to our newsletter and stay updated.
                                 Subscribe to our newsletter and stay updated.
                             </p>
                             <a href="#!" class="btn btn-subscribe">Subscribe</a>

@@ -14,10 +14,29 @@ body {
     font-size: 1.6rem;
     font-family: 'Poppins', sans-serif;
 }
+
 html,
 body {
     scroll-behavior: smooth;
+    transition: scroll-behavior 5s ease;
 }
+
+/* Scrollbar CSS */
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 /* Common */
 .content {
     width: 1110px;
@@ -317,7 +336,8 @@ a {
 
 /* list */
 .features .list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 70px;
 }
@@ -509,10 +529,6 @@ a {
     font-size: 3.5rem;
     font-weight: 600;
     line-height: 1.28571;
-    display: -webkit-box;
-    -webkit-line-clamp: var(--line-clamp, 3);
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .stats .info .sub-title::before {
@@ -617,7 +633,7 @@ footer.footer {
 }
 
 .footer .row-top {
-    gap: 185px;
+    column-gap: 185px;
 }
 
 .footer .column .heading {
