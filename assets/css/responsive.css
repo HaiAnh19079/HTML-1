@@ -25,6 +25,7 @@
     .toggle-menu svg {
         width: 24px;
         color: #0f1b4c;
+        cursor: pointer;
     }
 
     .navbar ul.navigation {
